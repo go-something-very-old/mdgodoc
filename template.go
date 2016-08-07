@@ -72,6 +72,7 @@ _Last updated {{genDate}}_`
 
 	constantsTpl = `{{define "constants"}}
 {{if gt (len .Consts) 0}}
+
 ## Constants
   {{range $idx, $val := .Consts}}
 {{code "go" (fragment $val.Decl.Pos $val.Decl.End)}}
@@ -83,6 +84,7 @@ _Last updated {{genDate}}_`
 
 	variablesTpl = `{{define "variables"}}
 {{if gt (len .Vars) 0}}
+
 ## Variables
   {{range $idx, $val := .Vars}}
 {{code "go" (fragment $val.Decl.Pos $val.Decl.End)}}
@@ -94,11 +96,13 @@ _Last updated {{genDate}}_`
 
 	functionsTpl = `{{define "functions"}}
 {{if gt (len .Funcs) 0}}
+
 ## Functions
   {{range $idx, $fn := .Funcs}}
 ### func <a href="{{srclink $fn.Decl.Pos}}" name="{{$fn.Name}}">{{$fn.Name}}</a> [¶](#{{$fn.Name}})
 {{code "go" (fragment $fn.Decl.Pos $fn.Decl.End)}}
 {{$fn.Doc}}
+
   {{end}}
 {{end}}
 
@@ -106,6 +110,7 @@ _Last updated {{genDate}}_`
 
 	typesTpl = `{{define "types"}}
 {{if gt (len .Types) 0}}
+
 ## Types
   {{range $idx, $ty := .Types}}
 ### type <a href="{{srclink $ty.Decl.Pos}}" name="{{$ty.Name}}">{{$ty.Name}}</a> [¶](#{{$ty.Name}})
@@ -116,12 +121,14 @@ _Last updated {{genDate}}_`
 #### func <a href="{{srclink $fn.Decl.Pos}}" name="{{$fn.Name}}">{{$fn.Name}}</a> [¶](#{{$fn.Name}})
 {{code "go" (fragment $fn.Decl.Pos $fn.Decl.End)}}
 {{$fn.Doc}}
+
 {{end}}
 
 {{range $idx, $mt := $ty.Methods}}
 #### func <a href="{{srclink $mt.Decl.Pos}}" name="{{$ty.Name}}-{{$mt.Name}}">{{$mt.Name}}</a> [¶](#{{$ty.Name}}-{{$mt.Name}})
 {{code "go" (fragment $mt.Decl.Pos $mt.Decl.End)}}
 {{$mt.Doc}}
+
 {{end}}
 
   {{end}}

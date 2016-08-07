@@ -69,7 +69,7 @@ func (md *MdDoc) genSourceFunc() func(token.Pos) string {
 func normalizeMd(doc string) string {
 	nlReplace := regexp.MustCompile(`\n(\s)+\n`)
 	trimCodes := regexp.MustCompile("\n{2,}```")
-	doc = nlReplace.ReplaceAllString(doc, "\n")
+	doc = nlReplace.ReplaceAllString(doc, "\n\n")
 	doc = trimCodes.ReplaceAllString(doc, "\n```")
 	return doc
 }
