@@ -20,7 +20,7 @@ type MdDoc struct {
 }
 
 // NewMdDoc creates new MdDoc instance, srcHref is used to generate link to source.
-// * for github: srcHref="/blob/master/{{.Filename}}#L{{.Line}}"
+// * for github: srcHref="https://github.com/go-otserv/mdgodoc/blob/master/{{.Filename}}#L{{.Line}}"
 func NewMdDoc(srcHref string) *MdDoc {
 	srcHrefTmpl, _ := template.New("hrefTmpl").Parse(srcHref)
 	return &MdDoc{token.NewFileSet(), nil, nil, srcHrefTmpl}

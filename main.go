@@ -22,7 +22,7 @@ func (argv *argT) AutoHelp() bool {
 	return argv.Help
 }
 
-// go run *.go --pkg=main --src-href="/blob/master/{{.Filename}}#L{{.Line}}"
+// go run *.go --pkg=main --src-href="https://github.com/go-otserv/mdgodoc/blob/master/{{.Filename}}#L{{.Line}}"
 func main() {
 	cli.Run(new(argT), func(ctx *cli.Context) error {
 		argv := ctx.Argv().(*argT)
