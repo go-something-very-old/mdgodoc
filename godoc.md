@@ -5,9 +5,9 @@
 
 * Types
   * [MdDoc](#MdDoc)
-	 * [func NewMdDoc](#NewMdDoc)
-	 * [func GenMdDoc](#MdDoc-GenMdDoc)
-	 * [func ParseDir](#MdDoc-ParseDir)
+	 * [func NewMdDoc(srcHref string) *MdDoc](#NewMdDoc)
+	 * [func (md *MdDoc) GenMdDoc(funcs template.FuncMap, templs []string) string](#MdDoc-GenMdDoc)
+	 * [func (md *MdDoc) ParseDir(pkgName string) *doc.Package](#MdDoc-ParseDir)
 
 ## Types
 
@@ -27,7 +27,7 @@ MdDoc holds the state used for generating documentation.
 func NewMdDoc(srcHref string) *MdDoc
 ```
 NewMdDoc creates new MdDoc instance, srcHref is used to generate link to source.
-* for github: srcHref="/blob/master/{{.Filename}}#L{{.Line}}"
+* for github: srcHref="https://github.com/go-otserv/mdgodoc/blob/master/{{.Filename}}#L{{.Line}}"
 
 #### func <a href="https://github.com/go-otserv/mdgodoc/blob/master/mdgodoc.go#L37" name="MdDoc-GenMdDoc">GenMdDoc</a> [¶](#MdDoc-GenMdDoc)
 ```go
