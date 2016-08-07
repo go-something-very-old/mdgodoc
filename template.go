@@ -50,21 +50,15 @@ _Last updated {{genDate}}_`
 {{end}}
 
 {{if gt (len .Funcs) 0}}
-* Functions
-  {{range $idx, $fn := .Funcs}}
-    * [{{$fn.Name}}](#{{$fn.Name}})
-  {{end}}
+* Functions{{range $idx, $fn := .Funcs}}
+  * [{{$fn.Name}}](#{{$fn.Name}}){{end}}
 {{end}}
 
 {{if gt (len .Types) 0}}
 * Types{{range $idx, $ty := .Types}}
-  * [{{$ty.Name}}](#{{$ty.Name}})
-    {{range $idx, $fn := $ty.Funcs}}
-     * [func {{$fn.Name}}](#{{$fn.Name}})
-    {{end}}
-    {{range $idx, $mt := $ty.Methods}}
-     * [func {{$mt.Name}}](#{{$ty.Name}}-{{$mt.Name}})
-    {{end}}
+  * [{{$ty.Name}}](#{{$ty.Name}}){{range $idx, $fn := $ty.Funcs}}
+	 * [func {{$fn.Name}}](#{{$fn.Name}}){{end}}{{range $idx, $mt := $ty.Methods}}
+	 * [func {{$mt.Name}}](#{{$ty.Name}}-{{$mt.Name}}){{end}}
   {{end}}
 {{end}}
 

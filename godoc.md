@@ -5,12 +5,9 @@
 
 * Types
   * [MdDoc](#MdDoc)
-
-     * [func NewMdDoc](#NewMdDoc)
-
-     * [func GenMdDoc](#MdDoc-GenMdDoc)
-
-     * [func ParseDir](#MdDoc-ParseDir)
+	 * [func NewMdDoc](#NewMdDoc)
+	 * [func GenMdDoc](#MdDoc-GenMdDoc)
+	 * [func ParseDir](#MdDoc-ParseDir)
 
 ## Types
 
